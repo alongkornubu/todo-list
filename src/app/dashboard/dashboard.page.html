@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title >TodoList</ion-title>
+    <ion-icon slot="end"style="width: 50px;" (click)="logout()"  name="log-out-outline"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<h1>วันนี้ทำอะไร?</h1>
+ <h3>{{dt}}</h3>
+<!-- list-task -->
+<ion-content class="padding">
+  <ion-item  style="margin-top: 10px;margin-bottom: 10px;"color="dark" *ngFor="let entry of form | async" routerLink="/detail/{{entry.id}}"  >
+    <!-- -->
+    <ion-label  *ngIf="entry.isChecked;else nono">
+      <h2 [style]="stytxt">{{ entry.taskName}}</h2>
+      <p>{{ entry.taskTime }}</p>
+      <ion-checkbox style="float: right;margin-top: -25px;" slot="end"
+      [(ngModel)]="entry.isChecked"  (ngModelChange)="update(entry.id,entry.isChecked)"></ion-checkbox>
+    </ion-label>
+      <ng-template #nono>
+        <ion-label>
+        <h2>{{ entry.taskName}}</h2>
+        <p>{{ entry.taskTime }}</p>
+        <ion-checkbox style="float: right;margin-top: -25px;" slot="end"
+         [(ngModel)]="entry.isChecked"  (ngModelChange)="update(entry.id,entry.isChecked)"></ion-checkbox>
+      </ion-label>
+      </ng-template>
+
+  </ion-item>
+ <!-- submit task -->
+<ion-content [style]="style" color="dark" style="height: 105px;"  >
+  <ion-input position="floating" placeholder="Enter une tache"
+  type="text" name="tache" ngModel [(ngModel)]="task.taskName">
+  </ion-input>
+  <ion-button   style="float:right;margin-right:10px;"  type="submit" (click)="submit()">+</ion-button>
+</ion-content>
+</ion-content>
+
+
+
+</ion-content>
+
+<div *ngIf="variable;then content else other_content">here is ignored</div>
+<ng-template #content><ion-button  type="submit" (click)="submitTask()">+ return to input task </ion-button></ng-template>
+<ng-template #other_content><ion-button  type="submit" (click)="submitTaskAnnuler()">
+  <ion-icon style="margin-right: 10px;"name="return-up-back-outline"></ion-icon>
+  return task</ion-button></ng-template>
+
+
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button  (click)="todoClick()">
+          <ion-icon name="today-outline"></ion-icon>
+          <ion-label>Todo</ion-label>
+          <ion-badge> {{(form | async)?.length}}</ion-badge>
+        </ion-tab-button>
+
+
+
+        <ion-tab-button (click)="doneClick()">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>done</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+  </ion-toolbar>
+</ion-footer>
