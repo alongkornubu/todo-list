@@ -28,7 +28,7 @@ tasksCollectionRef: AngularFirestoreCollection<any>;
     });
 
   }
-  //fonction pour le reset du password Oublié
+  //function reset password
 forgotpassword(){
 this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
   console.log('email send');
@@ -36,7 +36,7 @@ this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
   console.log(error);
 });
 }
-//fonction pour signIn de l'utilisateur
+//function login
   loginUser(value) {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.signInWithEmailAndPassword(value.email, value.password)
@@ -49,7 +49,7 @@ this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
           err => reject(err));
     });
   }
-//fonction pour logOut de l'utilisateur
+//function logout
   logoutUser() {
     return new Promise((resolve, reject) => {
       if (this.afAuth.currentUser) {
@@ -63,7 +63,7 @@ this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
       }
     });
   }
-//fonction pour ajouter une tache par un utilisateur
+//function add user
   addTask(
     taskName: string,
     taskTime: string,
@@ -85,29 +85,29 @@ this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
   });
 }
 
-//fonction pour récuperer tous les tache d'un utilisateur
+//function user
 getallTasks(): Observable<any[]> {
   return this.firestore.collection<any>(`${this.userId}`).valueChanges();
 }
 
-//fonction pour récuperer tous les tache d'un utilisateur
+
 getallTasksArechecked(): Observable<any[]>{
   return this.firestore.collection<any>(`${this.userId}`,
   ref => ref.where('isChecked','==',true)).valueChanges();
 
 }
-//pour récupérer les détails d'un utilisateur
+
   userDetails() {
     return this.afAuth.user;
   }
 
-  // récupérer une seule tache d'un utilsateur
+  
   getTaskDetail(taskId: string): Observable<any> {
     return this.firestore.collection(`${this.userId}`).doc(taskId).valueChanges();
   }
 
 
-  // Update du tache si elle est checked or non
+  // Update user
   updateTask(taskId: string,bol: boolean) {
     this.firestore.collection(`${this.userId}`).doc(taskId)
     .update({ isChecked:bol});
