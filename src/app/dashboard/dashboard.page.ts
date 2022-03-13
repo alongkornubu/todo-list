@@ -25,7 +25,7 @@ export class DashboardPage implements OnInit {
     taskIsChecked:false
   };
 
-  dt=`${this.d.getDate()}/${this.d.getMonth()+1}/${this.d.getFullYear()}`;
+  dt=`${this.d.getDate()}/${this.d.getMonth()+1}/${this.d.getFullYear()+543}`;
   variable=true;
   constructor(
     private navCtrl: NavController,

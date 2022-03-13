@@ -28,7 +28,7 @@ tasksCollectionRef: AngularFirestoreCollection<any>;
     });
 
   }
-  //function reset password
+
 forgotpassword(){
 this.afAuth.sendPasswordResetEmail(this.email).then(()=> {
   console.log('email send');

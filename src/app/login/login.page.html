@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -42,16 +42,21 @@
       </ng-container>
     </div>
 
-
-          <ion-button class="submit-btn" type="submit" [disabled]="!validationsform.valid">SignIn</ion-button>
-
-
+    <br>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4" offset="4">
+                <ion-button class="submit-btn" type="submit" color="primary"[disabled]="!validationsform.valid">SignIn</ion-button>
+              </ion-col>
+            </ion-row>
+      
+            </ion-grid>
 
     <label class="error-message">{{errorMessage}}</label>
   </form>
-  <ion-button class="submit-btn" type="submit"  (click)="forgotpassword()">Forgot password</ion-button>
+ 
 
   <p class="go-to-register">
-    No account yet? <a (click)="goToRegisterPage()">Register</a>
+    <a (click)="goToRegisterPage()">Register</a>
   </p>
 </ion-content>

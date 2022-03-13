@@ -4,14 +4,13 @@
 
 export const environment = {
   production: false,
-  // Your web app's Firebase configuration
   firebase : {
-    apiKey: "AIzaSyC4iCcVIL3YncSUrqzfYe6V26vsEWUyNg0",
-    authDomain: "fuddd-a8e24.firebaseapp.com",
-    projectId: "fuddd-a8e24",
-    storageBucket: "fuddd-a8e24.appspot.com",
-    messagingSenderId: "1087196940670",
-    appId: "1:1087196940670:web:3665acd9cd5704c485cb2f"
+  apiKey: "AIzaSyDiHkVEiqZgtZdGgBT-yGfru9e68RhEnzo",
+  authDomain: "todo-list-95505.firebaseapp.com",
+  projectId: "todo-list-95505",
+  storageBucket: "todo-list-95505.appspot.com",
+  messagingSenderId: "771308799029",
+  appId: "1:771308799029:web:eac6350ffd4ac922871d7c"
 }
 };
 

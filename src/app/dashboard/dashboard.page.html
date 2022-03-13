@@ -31,7 +31,7 @@
   </ion-item>
  <!-- submit task -->
 <ion-content [style]="style" color="dark" style="height: 105px;"  >
-  <ion-input position="floating" placeholder="Enter une tache"
+  <ion-input position="floating" placeholder="ทำอะไรดี ?"
   type="text" name="tache" ngModel [(ngModel)]="task.taskName">
   </ion-input>
   <ion-button   style="float:right;margin-right:10px;"  type="submit" (click)="submit()">+</ion-button>
@@ -43,10 +43,10 @@
 </ion-content>
 
 <div *ngIf="variable;then content else other_content">here is ignored</div>
-<ng-template #content><ion-button  type="submit" (click)="submitTask()">+ return to input task </ion-button></ng-template>
+<ng-template #content><ion-button  type="submit" (click)="submitTask()">+ เพิ่มสิ่งที่ต้องทำ </ion-button></ng-template>
 <ng-template #other_content><ion-button  type="submit" (click)="submitTaskAnnuler()">
   <ion-icon style="margin-right: 10px;"name="return-up-back-outline"></ion-icon>
-  return task</ion-button></ng-template>
+  ย้อนกลับ</ion-button></ng-template>
 
 
 
